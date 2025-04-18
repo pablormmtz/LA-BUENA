@@ -1,0 +1,46 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Canelita - Gmail Reader API (via ngrok)",
+    "description": "Permite a Canelita acceder a los correos reales de Pablo usando un t\u00fanel ngrok.",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://0c79-2806-2f0-56a5-e83b-49fb-81a6-2626-cb65.ngrok-free.app",
+      "description": "Servidor de Pablo accesible desde GPT usando ngrok"
+    }
+  ],
+  "paths": {
+    "/leer_gmail": {
+      "get": {
+        "operationId": "leerGmail",
+        "summary": "Leer correos no le\u00eddos",
+        "description": "Devuelve una lista de correos no le\u00eddos desde la cuenta de Gmail.",
+        "responses": {
+          "200": {
+            "description": "Lista de correos",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "sender": {
+                        "type": "string"
+                      },
+                      "subject": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
